@@ -30,9 +30,7 @@ export default class extends PureComponent{
       {
         (items.length > 0) && items.map((item)=>{
           return (
-            <div className="react-ant-checkbox-item" key={item.value}>
-              <Checkbox value={item.value}>{ item.label }</Checkbox>
-            </div>
+            <Checkbox className="react-ant-checkbox-item" key={item.value} value={item.value}>{ item.label }</Checkbox>
           )
         })
       }

@@ -29,7 +29,7 @@ export default class extends PureComponent{
     return (
       <Checkbox.Group {...props} className={classNames('react-ant-checkbox-group',className)}>
       {
-        (items.length > 0) && items.map((item)=>{
+        (items.length > 0) && items.map((item, index)=>{
           if( template ){
             return template( item, index );
           }

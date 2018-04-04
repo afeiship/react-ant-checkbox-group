@@ -11,6 +11,7 @@ export default class extends PureComponent{
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
+    template: PropTypes.func
   };
 
   static defaultProps = {
@@ -24,14 +25,15 @@ export default class extends PureComponent{
   }
 
   render(){
-    const { className, items,  ...props } = this.props;
+    const { className, items, template,  ...props } = this.props;
     return (
       <Checkbox.Group {...props} className={classNames('react-ant-checkbox-group',className)}>
       {
         (items.length > 0) && items.map((item)=>{
-          return (
-            <Checkbox className="react-ant-checkbox-item" key={item.value} value={item.value}>{ item.label }</Checkbox>
-          )
+          if( template ){
+            return template( item, index );
+          }
+          return <Checkbox className="react-ant-checkbox-item" key={item.value} value={item.value}>{ item.label }</Checkbox>;
         })
       }
       </Checkbox.Group>

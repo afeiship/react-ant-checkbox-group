@@ -8,6 +8,7 @@
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
+    template: PropTypes.func
   };
 
   static defaultProps = {

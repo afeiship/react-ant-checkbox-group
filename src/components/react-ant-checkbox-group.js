@@ -15,14 +15,10 @@ export default class extends PureComponent{
   };
 
   static defaultProps = {
-    items: []
+    items: [],
+    template: noop
   };
   /*===properties end===*/
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render(){
     const { className, items, template,  ...props } = this.props;
@@ -30,10 +26,9 @@ export default class extends PureComponent{
       <Checkbox.Group {...props} className={classNames('react-ant-checkbox-group',className)}>
       {
         (items.length > 0) && items.map((item, index)=>{
-          if( template ){
-            return template( item, index );
-          }
-          return <Checkbox className="react-ant-checkbox-item" key={item.value} value={item.value}>{ item.label }</Checkbox>;
+            return template(item, index) || (
+              <Checkbox className="react-ant-checkbox-item" key={item.value} value={item.value}>{item.label}</Checkbox>
+            );
         })
       }
       </Checkbox.Group>

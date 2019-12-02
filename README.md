@@ -1,60 +1,60 @@
 # react-ant-checkbox-group
 > React ant checkbox group.
 
-
-## properties:
-```javascript
-
-  static propTypes = {
-    className: PropTypes.string,
-    items: PropTypes.array,
-    template: PropTypes.func
-  };
-
-  static defaultProps = {
-    items: []
-  };
-  
+## installation
+```shell
+npm install -S @feizheng/react-ant-checkbox-group
 ```
+## properties
+| property        | type | description |
+| --------------- | ---- | ----------- |
+| className       | -    | -           |
+| value           | -    | -           |
+| onChange        | -    | -           |
 
-## usage:
-```jsx
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-ant-checkbox-group/dist/style.scss";
 
-// install: npm install afeiship/react-ant-checkbox-group --save
-// import : import ReactAntCheckboxGroup from 'react-ant-checkbox-group'
+  // customize your styles:
+  $react-ant-checkbox-group-options: ()
+  ```
+2. import js
+  ```js
+  import ReactAntCheckboxGroup from '../src/main';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import './assets/style.scss';
 
-class App extends React.Component{
-  state = {
-    items: nx.antBuildItems(['op1','op2','op3'],true)
-  };
+  class App extends React.Component {
+    state = {
+      items: [
+        { value: 'k1', label: 'label1' },
+        { value: 'k2', label: 'label2' },
+        { value: 'k3', label: 'label3' }
+      ]
+    };
 
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
+    onChange = (inEvent) => {
+      console.log('chk change:', inEvent.target.value);
+    };
+
+    render() {
+      return (
+        <div className="app-container">
+          <ReactAntCheckboxGroup
+            name="abc"
+            onChange={this.onChange}
+            items={this.state.items}
+          />
+        </div>
+      );
+    }
   }
 
-  _onChange = e =>{
-    console.log(e);
-  };
+  ReactDOM.render(<App />, document.getElementById('app'));
+  ```
 
-  render(){
-    return (
-      <div className="hello-react-ant-checkbox-group">
-        <ReactAntCheckboxGroup onChange={this._onChange} items={ this.state.items } ref='rc' />
-      </div>
-    );
-  }
-}
-
-```
-
-## customize style:
-```scss
-// customize your styles:
-$react-ant-checkbox-group-options:(
-);
-
-@import '~node_modules/react-ant-checkbox-group/style.scss';
-```
+## documentation
+- https://afeiship.github.io/react-ant-checkbox-group/

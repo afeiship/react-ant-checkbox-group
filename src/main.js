@@ -1,2 +1,2 @@
-import ReactAntCheckboxGroup from 'components/react-ant-checkbox-group';
+import ReactAntCheckboxGroup from './components';
 export default ReactAntCheckboxGroup;

@@ -20,14 +20,15 @@ export default class extends Component {
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
+    template: PropTypes.func,
     value: PropTypes.array,
     onChange: PropTypes.func
   };
 
   static defaultProps = {
     items: [],
-    value: [],
     template: DEFAULT_TEMPLATE,
+    value: [],
     onChange: noop
   };
 

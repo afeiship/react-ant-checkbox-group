@@ -6,11 +6,13 @@
 npm install -S @feizheng/react-ant-checkbox-group
 ```
 ## properties
-| property        | type | description |
-| --------------- | ---- | ----------- |
-| className       | -    | -           |
-| value           | -    | -           |
-| onChange        | -    | -           |
+| property  | type | description |
+| --------- | ---- | ----------- |
+| className | -    | -           |
+| items     | -    | -           |
+| template  | -    | -           |
+| value     | -    | -           |
+| onChange  | -    | -           |
 
 ## usage
 1. import css

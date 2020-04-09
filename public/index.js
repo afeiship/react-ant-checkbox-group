@@ -1,7 +1,16 @@
 import ReactAntCheckboxGroup from '../src/main';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import { Checkbox } from 'antd';
 import './assets/style.scss';
+
+const DEFAULT_TEMPLATE = ({ item }) => {
+  return (
+    <Checkbox key={item.value} value={item.value}>
+      {item.label}
+    </Checkbox>
+  );
+};
 
 class App extends React.Component {
   state = {
@@ -23,6 +32,7 @@ class App extends React.Component {
           name="abc"
           onChange={this.onChange}
           items={this.state.items}
+          template={DEFAULT_TEMPLATE}
         />
       </div>
     );

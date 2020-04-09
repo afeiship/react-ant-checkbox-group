@@ -3,31 +3,39 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from '@feizheng/noop';
-import { Checkbox } from 'antd';
 import objectAssign from 'object-assign';
+import { Checkbox } from 'antd';
 
 const CLASS_NAME = 'react-ant-checkbox-group';
-const DEFAULT_TEMPLATE = ({ item }) => {
-  return (
-    <Checkbox key={item.value} value={item.value}>
-      {item.label}
-    </Checkbox>
-  );
-};
 
-export default class extends Component {
+export default class ReactAntCheckboxGroup extends Component {
   static displayName = CLASS_NAME;
+  static version = '__VERSION__';
   static propTypes = {
+    /**
+     * The extended className for component.
+     */
     className: PropTypes.string,
-    items: PropTypes.array,
-    template: PropTypes.func,
+    /**
+     * Default value.
+     */
     value: PropTypes.array,
-    onChange: PropTypes.func
+    /**
+     * The change handler.
+     */
+    onChange: PropTypes.func,
+    /**
+     * The checkbox data source.
+     */
+    items: PropTypes.array,
+    /**
+     * The item template.
+     */
+    template: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     items: [],
-    template: DEFAULT_TEMPLATE,
     value: [],
     onChange: noop
   };
@@ -59,7 +67,7 @@ export default class extends Component {
         className={classNames(CLASS_NAME, className)}
         onChange={this.onChange}
         {...props}>
-        {this.childView}
+        { this.childView }
       </Checkbox.Group>
     );
   }

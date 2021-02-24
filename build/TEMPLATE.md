@@ -1,14 +1,14 @@
 # react-ant-checkbox-group
 > React ant checkbox group.
 
+[![version][version-image]][version-url]
+[![license][license-image]][license-url]
+[![size][size-image]][size-url]
+[![download][download-image]][download-url]
+
 ## installation
 ```shell
-npm install -S @feizheng/react-ant-checkbox-group
-```
-
-## update
-```shell
-npm update @feizheng/react-ant-checkbox-group
+npm install -S @jswork/react-ant-checkbox-group
 ```
 
 ## properties
@@ -17,7 +17,10 @@ __GENERATE_DOCS__
 ## usage
 1. import css
   ```scss
-  @import "~@feizheng/react-ant-checkbox-group/dist/style.scss";
+  @import "~@jswork/react-ant-checkbox-group/dist/style.css";
+
+  // or use sass
+  @import "~@jswork/react-ant-checkbox-group/dist/style.scss";
 
   // customize your styles:
   $react-ant-checkbox-group-options: ()
@@ -29,3 +32,19 @@ __GENERATE_DAPP__
 
 ## documentation
 - https://afeiship.github.io/react-ant-checkbox-group/
+
+
+## license
+Code released under [the MIT license](https://github.com/afeiship/react-ant-checkbox-group/blob/master/LICENSE.txt).
+
+[version-image]: https://img.shields.io/npm/v/@jswork/react-ant-checkbox-group
+[version-url]: https://npmjs.org/package/@jswork/react-ant-checkbox-group
+
+[license-image]: https://img.shields.io/npm/l/@jswork/react-ant-checkbox-group
+[license-url]: https://github.com/afeiship/react-ant-checkbox-group/blob/master/LICENSE.txt
+
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-ant-checkbox-group
+[size-url]: https://github.com/afeiship/react-ant-checkbox-group/blob/master/dist/react-ant-checkbox-group.min.js
+
+[download-image]: https://img.shields.io/npm/dm/@jswork/react-ant-checkbox-group
+[download-url]: https://www.npmjs.com/package/@jswork/react-ant-checkbox-group

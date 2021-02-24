@@ -1,14 +1,14 @@
 # react-ant-checkbox-group
 > React ant checkbox group.
 
+[![version][version-image]][version-url]
+[![license][license-image]][license-url]
+[![size][size-image]][size-url]
+[![download][download-image]][download-url]
+
 ## installation
 ```shell
-npm install -S @feizheng/react-ant-checkbox-group
-```
-
-## update
-```shell
-npm update @feizheng/react-ant-checkbox-group
+npm install -S @jswork/react-ant-checkbox-group
 ```
 
 ## properties
@@ -24,16 +24,20 @@ npm update @feizheng/react-ant-checkbox-group
 ## usage
 1. import css
   ```scss
-  @import "~@feizheng/react-ant-checkbox-group/dist/style.scss";
+  @import "~@jswork/react-ant-checkbox-group/dist/style.css";
+
+  // or use sass
+  @import "~@jswork/react-ant-checkbox-group/dist/style.scss";
 
   // customize your styles:
   $react-ant-checkbox-group-options: ()
   ```
 2. import js
   ```js
-  import ReactAntCheckboxGroup from '@feizheng/react-ant-checkbox-group';
-  import ReactDOM from 'react-dom';
+  import ReactDemokit from '@jswork/react-demokit';
   import React from 'react';
+  import ReactDOM from 'react-dom';
+  import ReactAntCheckboxGroup from '@jswork/react-ant-checkbox-group';
   import { Checkbox } from 'antd';
   import './assets/style.scss';
 
@@ -47,6 +51,7 @@ npm update @feizheng/react-ant-checkbox-group
 
   class App extends React.Component {
     state = {
+      value: ['v1'],
       items: [
         { value: 'k1', label: 'label1' },
         { value: 'k2', label: 'label2' },
@@ -55,19 +60,32 @@ npm update @feizheng/react-ant-checkbox-group
     };
 
     onChange = (inEvent) => {
-      console.log('chk change:', inEvent.target.value);
+      // console.log('chk change:', inEvent.target.value);
+      this.setState({ value: inEvent.target.value });
     };
 
     render() {
       return (
-        <div className="app-container">
-          <ReactAntCheckboxGroup
-            name="abc"
-            onChange={this.onChange}
-            items={this.state.items}
-            template={DEFAULT_TEMPLATE}
-          />
-        </div>
+        <ReactDemokit
+          className="p-3 app-container"
+          url="https://github.com/afeiship/react-ant-checkbox-group">
+          <article class="message is-info mb-3">
+            <div class="message-header">Demo</div>
+            <div class="message-body">
+              <ReactAntCheckboxGroup
+                name="abc"
+                onChange={this.onChange}
+                items={this.state.items}
+                template={DEFAULT_TEMPLATE}
+              />
+            </div>
+          </article>
+
+          <article class="message">
+            <div class="message-header">Output</div>
+            <div class="message-body">{JSON.stringify(this.state.value)}</div>
+          </article>
+        </ReactDemokit>
       );
     }
   }
@@ -78,3 +96,19 @@ npm update @feizheng/react-ant-checkbox-group
 
 ## documentation
 - https://afeiship.github.io/react-ant-checkbox-group/
+
+
+## license
+Code released under [the MIT license](https://github.com/afeiship/react-ant-checkbox-group/blob/master/LICENSE.txt).
+
+[version-image]: https://img.shields.io/npm/v/@jswork/react-ant-checkbox-group
+[version-url]: https://npmjs.org/package/@jswork/react-ant-checkbox-group
+
+[license-image]: https://img.shields.io/npm/l/@jswork/react-ant-checkbox-group
+[license-url]: https://github.com/afeiship/react-ant-checkbox-group/blob/master/LICENSE.txt
+
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-ant-checkbox-group
+[size-url]: https://github.com/afeiship/react-ant-checkbox-group/blob/master/dist/react-ant-checkbox-group.min.js
+
+[download-image]: https://img.shields.io/npm/dm/@jswork/react-ant-checkbox-group
+[download-url]: https://www.npmjs.com/package/@jswork/react-ant-checkbox-group

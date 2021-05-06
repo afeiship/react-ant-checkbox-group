@@ -7,7 +7,7 @@ import './assets/style.scss';
 
 class App extends React.Component {
   state = {
-    value: ['v1'],
+    value: ['k1','k3'],
     items: [
       { value: 'k1', label: 'label1' },
       { value: 'k2', label: 'label2' },
@@ -25,20 +25,21 @@ class App extends React.Component {
       <ReactDemokit
         className="p-3 app-container"
         url="https://github.com/afeiship/react-ant-checkbox-group">
-        <article class="message is-info mb-3">
-          <div class="message-header">Demo</div>
-          <div class="message-body">
+        <article className="message is-info mb-3">
+          <div className="message-header">Demo</div>
+          <div className="message-body">
             <ReactAntCheckboxGroup
               name="abc"
+              value={this.state.value}
               onChange={this.onChange}
               items={this.state.items}
             />
           </div>
         </article>
 
-        <article class="message">
-          <div class="message-header">Output</div>
-          <div class="message-body">{JSON.stringify(this.state.value)}</div>
+        <article className="message">
+          <div className="message-header">Output</div>
+          <div className="message-body">{JSON.stringify(this.state.value)}</div>
         </article>
       </ReactDemokit>
     );

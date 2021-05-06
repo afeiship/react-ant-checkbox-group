@@ -18,7 +18,7 @@ npm install -S @jswork/react-ant-checkbox-group
 | value     | array  | false    | []      | Default value.                        |
 | onChange  | func   | false    | noop    | The change handler.                   |
 | items     | array  | false    | []      | The checkbox data source.             |
-| template  | func   | true     | -       | The item template.                    |
+| template  | func   | false    | -       | The item template.                    |
 
 
 ## usage
@@ -40,14 +40,6 @@ npm install -S @jswork/react-ant-checkbox-group
   import ReactAntCheckboxGroup from '@jswork/react-ant-checkbox-group';
   import { Checkbox } from 'antd';
   import './assets/style.scss';
-
-  const DEFAULT_TEMPLATE = ({ item }) => {
-    return (
-      <Checkbox key={item.value} value={item.value}>
-        {item.label}
-      </Checkbox>
-    );
-  };
 
   class App extends React.Component {
     state = {
@@ -76,7 +68,6 @@ npm install -S @jswork/react-ant-checkbox-group
                 name="abc"
                 onChange={this.onChange}
                 items={this.state.items}
-                template={DEFAULT_TEMPLATE}
               />
             </div>
           </article>

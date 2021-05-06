@@ -5,6 +5,13 @@ import noop from '@jswork/noop';
 import { Checkbox } from 'antd';
 
 const CLASS_NAME = 'react-ant-checkbox-group';
+const DEFAULT_TEMPLATE = ({ item }) => {
+  return (
+    <Checkbox key={item.value} value={item.value}>
+      {item.label}
+    </Checkbox>
+  );
+};
 
 export default class ReactAntCheckboxGroup extends Component {
   static displayName = CLASS_NAME;
@@ -35,7 +42,8 @@ export default class ReactAntCheckboxGroup extends Component {
   static defaultProps = {
     items: [],
     value: [],
-    onChange: noop
+    onChange: noop,
+    template: DEFAULT_TEMPLATE
   };
 
   get childView() {

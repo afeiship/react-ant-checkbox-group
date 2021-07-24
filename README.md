@@ -15,7 +15,7 @@ npm install -S @jswork/react-ant-checkbox-group
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| value     | array  | false    | []      | Default value.                        |
+| value     | array  | false    | -       | Default value.                        |
 | onChange  | func   | false    | noop    | The change handler.                   |
 | items     | array  | false    | []      | The checkbox data source.             |
 | template  | func   | false    | -       | The item template.                    |

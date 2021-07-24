@@ -41,7 +41,6 @@ export default class ReactAntCheckboxGroup extends Component {
 
   static defaultProps = {
     items: [],
-    value: [],
     onChange: noop,
     template: DEFAULT_TEMPLATE
   };

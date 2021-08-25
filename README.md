@@ -19,6 +19,7 @@ npm install -S @jswork/react-ant-checkbox-group
 | onChange  | func   | false    | noop    | The change handler.                   |
 | items     | array  | false    | []      | The checkbox data source.             |
 | template  | func   | false    | -       | The item template.                    |
+| styleless | bool   | false    | false   | If no checkbox ui.                    |
 
 
 ## usage
@@ -43,7 +44,7 @@ npm install -S @jswork/react-ant-checkbox-group
 
   class App extends React.Component {
     state = {
-      value: ['k1','k3'],
+      value: ['k1', 'k3'],
       items: [
         { value: 'k1', label: 'label1' },
         { value: 'k2', label: 'label2' },
@@ -64,12 +65,24 @@ npm install -S @jswork/react-ant-checkbox-group
           <article className="message is-info mb-3">
             <div className="message-header">Demo</div>
             <div className="message-body">
-              <ReactAntCheckboxGroup
-                name="abc"
-                value={this.state.value}
-                onChange={this.onChange}
-                items={this.state.items}
-              />
+              <p>
+                <ReactAntCheckboxGroup
+                  name="abc"
+                  value={this.state.value}
+                  onChange={this.onChange}
+                  items={this.state.items}
+                />
+              </p>
+
+              <p>
+                <ReactAntCheckboxGroup
+                  name="abcd"
+                  styleless
+                  value={this.state.value}
+                  onChange={this.onChange}
+                  items={this.state.items}
+                />
+              </p>
             </div>
           </article>
 

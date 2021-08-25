@@ -83,6 +83,7 @@
   },
   "dependencies": {
     "@jswork/noop": "^1.0.0",
+    "@jswork/react-list": "^1.0.5",
     "classnames": "^2.2.6"
   },
   "publishConfig": {

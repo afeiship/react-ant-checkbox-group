@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from '@jswork/noop';
 import { Checkbox } from 'antd';
+import ReactList from '@Jswork/react-list';
 
 const CLASS_NAME = 'react-ant-checkbox-group';
 const DEFAULT_TEMPLATE = ({ item }) => {
@@ -36,21 +37,19 @@ export default class ReactAntCheckboxGroup extends Component {
     /**
      * The item template.
      */
-    template: PropTypes.func.isRequired
+    template: PropTypes.func.isRequired,
+    /**
+     * If no checkbox ui.
+     */
+    styleless: PropTypes.bool
   };
 
   static defaultProps = {
     items: [],
     onChange: noop,
+    styleless: false,
     template: DEFAULT_TEMPLATE
   };
-
-  get childView() {
-    const { items, template } = this.props;
-    return items.map((item, index) => {
-      return template({ item, index });
-    });
-  }
 
   onChange = (inEvent) => {
     const { onChange } = this.props;
@@ -58,20 +57,15 @@ export default class ReactAntCheckboxGroup extends Component {
   };
 
   render() {
-    const {
-      className,
-      items,
-      template,
-      onChange,
-      ...props
-    } = this.props;
+    const { className, items, template, onChange, styleless, ...props } = this.props;
     return (
       <Checkbox.Group
         data-component={CLASS_NAME}
+        data-styleless={styleless}
         className={classNames(CLASS_NAME, className)}
         onChange={this.onChange}
         {...props}>
-        {this.childView}
+        <ReactList items={items} template={template} />
       </Checkbox.Group>
     );
   }

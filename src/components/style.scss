@@ -1,4 +1,13 @@
 $react-ant-checkbox-group-options: () !default;
 
 .react-ant-checkbox-group {
+  &[data-styleless="true"] {
+    .ant-checkbox {
+      display: none;
+    }
+
+    .ant-checkbox + span {
+      padding: 0;
+    }
+  }
 }

@@ -12,14 +12,15 @@ npm install -S @jswork/react-ant-checkbox-group
 ```
 
 ## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | array  | false    | -       | Default value.                        |
-| onChange  | func   | false    | noop    | The change handler.                   |
-| items     | array  | false    | []      | The checkbox data source.             |
-| template  | func   | false    | -       | The item template.                    |
-| styleless | bool   | false    | false   | If no checkbox ui.                    |
+| Name      | Type   | Required | Default          | Description                           |
+| --------- | ------ | -------- | ---------------- | ------------------------------------- |
+| className | string | false    | -                | The extended className for component. |
+| value     | array  | false    | -                | Default value.                        |
+| onChange  | func   | false    | noop             | The change handler.                   |
+| onSearch  | func   | false    | noop             | The handler when search.              |
+| items     | array  | false    | []               | The checkbox data source.             |
+| template  | func   | false    | RctplAntCheckbox | The item template.                    |
+| styleless | bool   | false    | false            | If no checkbox ui.                    |
 
 
 ## usage
@@ -39,7 +40,6 @@ npm install -S @jswork/react-ant-checkbox-group
   import React from 'react';
   import ReactDOM from 'react-dom';
   import ReactAntCheckboxGroup from '@jswork/react-ant-checkbox-group';
-  import { Checkbox } from 'antd';
   import './assets/style.scss';
 
   class App extends React.Component {
@@ -65,24 +65,25 @@ npm install -S @jswork/react-ant-checkbox-group
           <article className="message is-info mb-3">
             <div className="message-header">Demo</div>
             <div className="message-body">
-              <p>
+              <div className="p-2">
                 <ReactAntCheckboxGroup
                   name="abc"
                   value={this.state.value}
                   onChange={this.onChange}
+                  onSearch={(e) => {
+                    console.log('event:', e.target.value);
+                  }}
                   items={this.state.items}
                 />
-              </p>
+              </div>
 
-              <p>
-                <ReactAntCheckboxGroup
-                  name="abcd"
-                  styleless
-                  value={this.state.value}
-                  onChange={this.onChange}
-                  items={this.state.items}
-                />
-              </p>
+              <ReactAntCheckboxGroup
+                name="abcd"
+                styleless
+                value={this.state.value}
+                onChange={this.onChange}
+                items={this.state.items}
+              />
             </div>
           </article>
 

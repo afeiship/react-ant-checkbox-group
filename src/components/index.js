@@ -4,15 +4,9 @@ import classNames from 'classnames';
 import noop from '@jswork/noop';
 import { Checkbox } from 'antd';
 import ReactList from '@Jswork/react-list';
+import RctplAntCheckbox from '@jswork/rctpl-ant-checkbox';
 
 const CLASS_NAME = 'react-ant-checkbox-group';
-const DEFAULT_TEMPLATE = ({ item }) => {
-  return (
-    <Checkbox key={item.value} value={item.value}>
-      {item.label}
-    </Checkbox>
-  );
-};
 
 export default class ReactAntCheckboxGroup extends Component {
   static displayName = CLASS_NAME;
@@ -53,7 +47,7 @@ export default class ReactAntCheckboxGroup extends Component {
     onChange: noop,
     onSearch: noop,
     styleless: false,
-    template: DEFAULT_TEMPLATE
+    template: RctplAntCheckbox
   };
 
   onChange = (inEvent) => {

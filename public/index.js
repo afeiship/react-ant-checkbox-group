@@ -2,7 +2,6 @@ import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactAntCheckboxGroup from '../src/main';
-import { Checkbox } from 'antd';
 import './assets/style.scss';
 
 class App extends React.Component {

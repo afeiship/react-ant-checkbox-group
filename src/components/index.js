@@ -31,6 +31,10 @@ export default class ReactAntCheckboxGroup extends Component {
      */
     onChange: PropTypes.func,
     /**
+     * The handler when search.
+     */
+    onSearch: PropTypes.func,
+    /**
      * The checkbox data source.
      */
     items: PropTypes.array,
@@ -47,17 +51,20 @@ export default class ReactAntCheckboxGroup extends Component {
   static defaultProps = {
     items: [],
     onChange: noop,
+    onSearch: noop,
     styleless: false,
     template: DEFAULT_TEMPLATE
   };
 
   onChange = (inEvent) => {
-    const { onChange } = this.props;
-    onChange({ target: { value: inEvent } });
+    const { onChange, onSearch } = this.props;
+    const stdEvent = { target: { value: inEvent } };
+    onChange(stdEvent);
+    onSearch(stdEvent);
   };
 
   render() {
-    const { className, items, template, onChange, styleless, ...props } = this.props;
+    const { className, items, template, onChange, onSearch, styleless, ...props } = this.props;
     return (
       <Checkbox.Group
         data-component={CLASS_NAME}

@@ -28,24 +28,25 @@ class App extends React.Component {
         <article className="message is-info mb-3">
           <div className="message-header">Demo</div>
           <div className="message-body">
-            <p>
+            <div className="p-2">
               <ReactAntCheckboxGroup
                 name="abc"
                 value={this.state.value}
                 onChange={this.onChange}
+                onSearch={(e) => {
+                  console.log('event:', e.target.value);
+                }}
                 items={this.state.items}
               />
-            </p>
+            </div>
 
-            <p>
-              <ReactAntCheckboxGroup
-                name="abcd"
-                styleless
-                value={this.state.value}
-                onChange={this.onChange}
-                items={this.state.items}
-              />
-            </p>
+            <ReactAntCheckboxGroup
+              name="abcd"
+              styleless
+              value={this.state.value}
+              onChange={this.onChange}
+              items={this.state.items}
+            />
           </div>
         </article>
 
